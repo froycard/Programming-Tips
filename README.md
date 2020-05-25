@@ -8,6 +8,16 @@ Colección de tips interesantes para tener en cuenta al programar cualquier apli
 https://wiki.python.org/moin/TimeComplexity
 
 *in C++:
-Increment: i++; fast: ++i; fastest: i=-~i;
+**************************************************************
+1 Increment: i++; fast: ++i; fastest: i=-~i;
+--------------------------------------------
+2 To determine the current function name:
+int addNumbers(int number1, int number2)
+{
+std::cout << "Entering function " << __func__ << std::endl;
+return number1 + number2;
+}
+-------------------------------------------
+
 
 
