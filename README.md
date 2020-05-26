@@ -9,13 +9,13 @@ https://wiki.python.org/moin/TimeComplexity
 
 *in C++:
 **************************************************************
-1 Increment: i++; fast: ++i; fastest: i=-~i;
+*** Increment: i++; fast: ++i; fastest: i=-~i;
 --------------------------------------------
-2 To determine the current function name:
+*** To determine the current function name:
 int addNumbers(int number1, int number2)
 {
-std::cout << "Entering function " << __func__ << std::endl;
-return number1 + number2;
+    std::cout << "Entering function " << __func__ << std::endl;
+    return number1 + number2;
 }
 -------------------------------------------
 
