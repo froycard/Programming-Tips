@@ -1,0 +1,45 @@
+#include<iostream>
+#include<cstdio>
+
+using namespace std;
+
+int main()
+{
+	/*
+	int x=12345;
+	char *ptr = (char *)(&x);
+	cout << sizeof(int) << endl;
+	cout << ptr << endl;
+	for(auto i=0;i<4;++i)
+		cout << ptr+i << ":"<<char(*(ptr+i)) << endl;
+	*/
+	unsigned d = 1234;
+
+/* 1. use a union */
+union u {
+   unsigned d;
+    unsigned char c[sizeof(unsigned)];
+};
+union u tmp;
+
+tmp.d = d;
+for (size_t i=0; i < sizeof(unsigned); ++i)
+    printf("%02x\n", tmp.c[i]);
+cout<<"*******"<<endl;
+/* 2. memcpy */
+unsigned char data[sizeof d];
+
+memcpy(data, &d, sizeof d);
+for (size_t i=0; i < sizeof d; ++i)
+    printf("%02x\n", data[i]);
+cout<<"*******"<<endl;
+/* 3. Use a pointer to an unsigned char to examine the bytes */
+unsigned char *p = (unsigned char *)&d;
+
+for (size_t i=0; i < sizeof d; ++i)
+    printf("%02x\n", p[i]);
+	
+	
+	
+	return 0;
+}
